@@ -17,6 +17,15 @@ namespace RozetkaSpecFlowAutomation.Pages
         {
             DriverManager.Instance().Navigate().GoToUrl(URL);
         }
+        protected IWebElement FindElement(By locator)
+        {
+            return DriverManager.Instance().FindElement(locator);
+        }
+
+        protected ReadOnlyCollection<IWebElement> FindElements(By locator)
+        {
+            return DriverManager.Instance().FindElements(locator);
+        }
 
         protected void WaitUntillElementIsVisible(By locator)
         {
@@ -30,15 +39,6 @@ namespace RozetkaSpecFlowAutomation.Pages
             wait.Until(ExpectedConditions.ElementToBeClickable(locator));
         }
 
-        protected IWebElement FindElement(By locator)
-        {
-            return DriverManager.Instance().FindElement(locator);
-        }
-
-        protected ReadOnlyCollection<IWebElement> FindElements(By locator)
-        {
-            return DriverManager.Instance().FindElements(locator);
-        }
         public void actionMoveToElement(By locator)
         {
             Actions actionProvider = new Actions(DriverManager.Instance());
